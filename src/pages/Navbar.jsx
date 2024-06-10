@@ -11,11 +11,13 @@ import {
 } from "../components/ui/menubar";
 import { MenubarSub, MenubarSubTrigger } from "@radix-ui/react-menubar";
 import AgentLogo from "../assets/agent.png";
+import { HomeIcon } from "@radix-ui/react-icons";
+import Thumbnail from "../components/Components/Thumbnail";
 
 const Navbar = () => {
   return (
     <>
-      <div className="h-[48px] z-10 px-4 ml-20 bg-black text-white">
+      <div className="h-screen z-10 px-4 bg-black text-white">
         <div className="mx-auto flex items-center justify-center">
           {/* <img
             src={AgentLogo}

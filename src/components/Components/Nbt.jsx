@@ -1,10 +1,9 @@
-// src/components/TranscriptionPage.js
 import React, { useState } from "react";
 import { Button } from "../ui/button";
-import TextField from "@mui/material/TextField";
 import { Input } from "../ui/input";
+
 const Nbt = () => {
-  const [questions, setQuestions] = useState([]);
+    const [questions, setQuestions] = useState([]);
 
   const addQuestions = (que) => {
     console.log(que);
@@ -27,25 +26,11 @@ const Nbt = () => {
     q.push(inputValue);
     setQuestions(q);
   };
-
-  return (
-    <>
-      <div className="min-h-screen border-2 border-black relative">
-        <div className="flex justify-center">
-          <h1 className="text-2xl font-bold mb-4">Next Best Action</h1>
-        </div>
-        {/* <Table>
-          <TableBody>
-            {questions.map((q) => {
-              return (
-                <TableRow>
-                  <TableCell>{q}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table> */}
-        <div className="absolute bottom-0 left-10">
+    return (
+        <div className='flex-1 border-l border-gray-400 p-4 h-screen'>
+            NBT
+            <div className="relative h-full overflow-auto">
+            <div className="absolute bottom-10 left-10">
           {questions.length > 0 &&
             questions.map((q) => {
               // console.log("qa.answer", qa.answer.retrieved_chunks);
@@ -86,16 +71,17 @@ const Nbt = () => {
               variant="outlined"
             /> */}
 
-              <Input onChange={handleChange} className="w-96" />
+              <Input onChange={handleChange} className="w-56" />
             </div>
             <div>
               <Button onClick={handleClick}>Send</Button>
             </div>
           </div>
         </div>
-      </div>
-    </>
-  );
-};
 
-export default Nbt;
+            </div>
+        </div>
+    )
+}
+
+export default Nbt

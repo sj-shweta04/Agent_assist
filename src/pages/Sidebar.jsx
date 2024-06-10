@@ -54,7 +54,7 @@ const Sidebar = () => {
       <div className="flex">
         
         <div
-          className={`bg-black h-screen p-5 pt-8 ${
+          className={`bg-black p-5 pt-8 ${
             open ? "w-72" : "w-20"
           } duration-300 text-white relative`}
         >
