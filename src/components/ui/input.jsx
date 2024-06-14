@@ -3,7 +3,7 @@ import * as React from "react";
 import { cn } from "../../lib/utils";
 
 const Input = React.forwardRef(({ className, type, ...props }, ref) => {
-  const { onChange } = props;
+  const { onChange, onKeyDown } = props;
   return (
     <input
       type={type}
@@ -13,6 +13,7 @@ const Input = React.forwardRef(({ className, type, ...props }, ref) => {
       )}
       ref={ref}
       onChange={(e) => onChange(e)}
+      onKeyDown={onKeyDown}
       {...props}
     />
   );

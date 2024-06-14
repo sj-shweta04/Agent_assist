@@ -30,7 +30,7 @@ const Transcription = () => {
           <CardContent>
             <div >
               {messages}
-              <h1>hiiiiiiiii</h1>
+             
              
               {/* api data here */}
             </div>
