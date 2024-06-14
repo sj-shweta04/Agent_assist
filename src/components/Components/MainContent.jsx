@@ -45,7 +45,7 @@ const MainContent = () => {
               <Question question={question} loading={loading} />
               <NextBestAction />
               <Response answer={answer} loading={loading} />
-              <KnowledgeAI />
+              {/* <KnowledgeAI /> */}
             </div>
           </div>
         </div>
