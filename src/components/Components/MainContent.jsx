@@ -10,23 +10,46 @@ import { APIUSER } from "../../E2E/axios.util";
 const MainContent = () => {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await APIUSER.get('/api');
-        setQuestion(response.data.question);
-        setAnswer(response.data.answer);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // const body = {
+  //   "transcript": "Customer: Hi, I need to change my ATM PIN and block my previous card.\n\nAgent: Hello! Sure, I can help you with that. Can you please provide me with your account number for verification?\n\nCustomer: Yes, it's 123456789.\n\nAgent: Thank you. I have verified your account. Just to confirm, you want to change your ATM PIN and block your previous card, correct?\n\nCustomer: Yes, that's correct.\n\nAgent: Alright, I have noted your request. Your previous card will be blocked immediately, and you'll receive instructions to change your ATM PIN shortly. Is there anything else I can assist you with?\n\nCustomer: No, that's all for now. Thank you"
+  // }
+  
 
-    fetchData();
+  // useEffect(() => {
+  //   setInterval(async () => {
+  //       try {
+  //         const response = await APIUSER.post('/extract_question', body);
+
+  //         console.log(response)
+  //         setQuestion(response.data.question);
+  //         setAnswer(response.data.Answer);
+  //       } catch (error) {
+  //         setError(error);
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     },100000)
+  // }, []);
+
+  useEffect(() => {
+    const main = async () => {
+        try {
+          
+          const response = await APIUSER.post('/extract_question');
+
+          console.log(response)
+          setQuestion(response.data.question);
+          setAnswer(response.data.Answer);
+        } catch (error) {
+          setError(error);
+        } finally {
+          setLoading(false);
+        }
+      }
+      main();
   }, []);
 
 
@@ -45,7 +68,7 @@ const MainContent = () => {
               <Question question={question} loading={loading} />
               <NextBestAction />
               <Response answer={answer} loading={loading} />
-              {/* <KnowledgeAI /> */}
+              <KnowledgeAI />
             </div>
           </div>
         </div>

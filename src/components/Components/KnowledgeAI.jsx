@@ -41,7 +41,7 @@ const KnowledgeAI = () => {
           </CardHeader>
           <CardContent>
             <div className="flex flex-col md:flex-row gap-3 mb-4">
-              <div className="">
+              <div className="flex justify-between">
                 <Input
                   type="text"
                   value={question}

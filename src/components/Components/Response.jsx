@@ -15,7 +15,12 @@ const Response = ({ answer, loading, error }) => {
             <div>Error</div>
           ) : (
             <CardContent>
-              <p>{answer}</p>
+             {answer.split("\n").map((data, index) => (
+                  <p
+                    key={index}
+                    dangerouslySetInnerHTML={{ __html: data }}
+                  />
+                ))}
             </CardContent>
           )}
         </Card>
